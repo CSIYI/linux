@@ -1,3 +1,20 @@
+This kernel was forked from 
+
+git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+
+at
+
+commit 2bd6bf03f4c1c59381d62c61d03f6cc3fe71f66e
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Sat Sep 16 15:47:51 2017 -0700
+
+Linux 4.14-rc1
+
+
+
+
+
+
 Linux kernel
 ============
 
