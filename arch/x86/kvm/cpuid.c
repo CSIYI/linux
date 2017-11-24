@@ -27,6 +27,8 @@
 #include "trace.h"
 #include "pmu.h"
 
+bool is_cmpe283_enabled = false;
+
 static u32 xstate_required_size(u64 xstate_bv, bool compacted)
 {
 	int feature_bit = 0;
@@ -883,6 +885,14 @@ out:
 		*edx = best->edx;
 	} else
 		*eax = *ebx = *ecx = *edx = 0;
+	if (function == 0x4FFFFFFF){
+		is_cmpe283_enabled = !is_cmpe283_enabled;
+	}
+	else if(function == 0x0 && is_cmpe283_enabled){
+		*ebx = (u32)0x6e617270;
+		*ecx = (u32)0x6c6f6f63;
+		*edx = (u32)0x73697661;
+	}
 	trace_kvm_cpuid(function, *eax, *ebx, *ecx, *edx, entry_found);
 	return entry_found;
 }
